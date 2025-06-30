@@ -18,7 +18,10 @@ const Home = () => {
     <div className="max-w-3xl mx-auto py-10 px-4">
         <div>
             
-          <form>
+          <form
+           onSubmit={e => {
+    e.preventDefault();
+  }}>
         <input
           type="text"
           name="search"
@@ -27,7 +30,7 @@ const Home = () => {
                     className="flex-1 px-4 py-2 w-150 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50 transition"
 
         />
-        <button type="submit" className='bg-blue-300 p-4 rounded-md'>Search</button>
+        <button type="submit" className='bg-blue-500 p-4 rounded-md text-white '>Search</button>
       </form>
         </div>
       <h1 className="text-3xl font-bold mb-8 text-center text-gray-800">Blog Posts</h1>
@@ -49,6 +52,14 @@ const Home = () => {
           </div>
         ))}
       </div>
+       <footer className="mt-16 border-t pt-6 text-center text-gray-500 text-sm">
+        <span>
+          &copy; {new Date().getFullYear()} BlogPost. All rights reserved.
+        </span>
+        <span className="block mt-1">
+          Made with <span className="text-blue-600">Abdiladiif</span> by Your Team
+        </span>
+      </footer>
     </div>
   )
 }

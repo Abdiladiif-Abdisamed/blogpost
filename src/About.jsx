@@ -28,6 +28,14 @@ const About = () => {
           Have questions or feedback? Reach out to us at <a href="mailto:info@blogpost.com" className="text-blue-700 underline">info@blogpost.com</a>. We’d love to hear from you!
         </p>
       </section>
+      <footer className="mt-16 border-t pt-6 text-center text-gray-500 text-sm">
+        <span>
+          &copy; {new Date().getFullYear()} BlogPost. All rights reserved.
+        </span>
+        <span className="block mt-1">
+          Made with <span className="text-blue-600">Abdiladiif</span> by Your Team
+        </span>
+      </footer>
     </div>
   )
 }

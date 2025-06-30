@@ -54,7 +54,7 @@ const Nav = () => {
 
           <button
           onClick={handleLogout}
-           className='bg-rose-500 p-4 rounded-md cursor-pointer'>Logout </button>
+           className='bg-rose-500 p-4 rounded-md cursor-pointer text-white'>Logout </button>
           </>
             ) :
             <NavLink

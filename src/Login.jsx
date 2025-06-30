@@ -32,20 +32,30 @@ const Login = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationErrors = validate();
-    setErrors(validationErrors);
-    setTouched({ email: true, password: true });
-    if (Object.keys(validationErrors).length === 0) {
-      // Handle login logic here
-      alert('Login successful!');
-      setIsAuthenticated(true); // Set isAuthenticated to true when login is successful
-      navigate("/Dashboard"); // Navigate to the Dashboard Page
+  e.preventDefault();
+  const validationErrors = validate();
+  setErrors(validationErrors);
+  setTouched({ email: true, password: true });
+  if (Object.keys(validationErrors).length === 0) {
+    // Akhri users array
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const foundUser = users.find(
+      (u) => u.email === form.email && u.password === form.password
+    );
+    if (foundUser) {
+      setIsAuthenticated(true);
+      navigate("/Dashboard");
+    } else {
+      setErrors({
+        ...validationErrors,
+        general: "Email or password is incorrect",
+      });
     }
-  };
+  }
+};
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100">
+    <div className="min-h-screen flex  flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md"
@@ -98,7 +108,21 @@ const Login = () => {
         >
           Login
         </button>
+          {errors.general && (
+  <p className="text-red-500 text-xs mt-1 text-center">{errors.general}</p>
+)}
+        <a href="./SignUp"
+        className='text-right  mt-4 flex flex-end ml-70' > SignUp</a>
+        
       </form>
+      <footer className="mt-16 border-t pt-6 text-center text-gray-500 text-sm ">
+        <span>
+          &copy; {new Date().getFullYear()} BlogPost. All rights reserved.
+        </span>
+        <span className="block mt-1">
+          Made with <span className="text-blue-600">Abdiladiif</span> by Your Team
+        </span>
+      </footer>
     </div>
   );
 };

@@ -23,14 +23,25 @@ const Dashboard = () => {
         </nav>
         <div className="mt-auto pt-10 text-xs text-gray-400">© {new Date().getFullYear()} BlogPost</div>
       </aside>
+      
 
       {/* Main Content */}
       <main className="flex-1 p-8">
         <div className="bg-white rounded-lg shadow p-6 min-h-[60vh]">
           <Outlet />
         </div>
+        <footer className="mt-16 border-t pt-6 text-center text-gray-500 text-sm">
+        <span>
+          &copy; {new Date().getFullYear()} BlogPost. All rights reserved.
+        </span>
+        <span className="block mt-1">
+          Made with <span className="text-blue-600">Abdiladiif</span> by Your Team
+        </span>
+      </footer>
       </main>
+      
     </div>
+    
   )
 }
 

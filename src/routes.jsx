@@ -7,6 +7,7 @@ import Login from "./Login";
 import NewPost from "./NewPost";
 import Posts from "./Posts";
 import ProtectedRoute from "./ProtectedRoute";
+import SignUp from "./SignUp";
 
 const Router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const Router = createBrowserRouter([
       {
         path: "Login",
         element: <Login />
+      }, 
+      {
+        path: "SignUp",
+        element: <SignUp/>
       }
     ]
   }
