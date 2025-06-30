@@ -11,14 +11,14 @@ export const usePost = ()=> useContext(PostContext)
 export const PostProvider = ({children})=>{
 
     const [posts , setPosts] = useState(initialPosts);
-
+    // delete 
     const deletePost =(id)=> setPosts(posts.filter(post => post.id !== id))
-
+    // Edit
   const editPost = (updatedPost) => setPosts(
   posts.map(post => post.id === updatedPost.id ? updatedPost : post)
 );
 
-
+    // Insert
     const addPost = (post )=> setPosts([post,...posts])
 
 

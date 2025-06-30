@@ -40,7 +40,7 @@ const Login = () => {
       // Handle login logic here
       alert('Login successful!');
       setIsAuthenticated(true); // Set isAuthenticated to true when login is successful
-      navigate("/Dashboard"); // Navigate to the Dashboard page
+      navigate("/Dashboard"); // Navigate to the Dashboard Page
     }
   };
 
