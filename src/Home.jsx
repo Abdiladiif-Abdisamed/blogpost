@@ -1,6 +1,6 @@
 import React, {  useState } from 'react'
-import { posts } from './Posts'
 import { useLocation } from 'react-router'
+import { usePost } from './PostContext';
 
 
 const Home = () => {
@@ -8,6 +8,8 @@ const Home = () => {
   const query = new URLSearchParams(location.search);
   const searchTerm = query.get('search') || '';
   
+
+  const {posts , deletePost} = usePost();
 
   const filteredPosts = posts.filter((post) =>
     post.title.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -22,6 +24,8 @@ const Home = () => {
           name="search"
           placeholder="Search posts"
           defaultValue={searchTerm}
+                    className="flex-1 px-4 py-2 w-150 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50 transition"
+
         />
         <button type="submit" className='bg-blue-300 p-4 rounded-md'>Search</button>
       </form>
@@ -35,7 +39,13 @@ const Home = () => {
           >
             <h2 className="text-xl font-semibold text-blue-700 mb-2">{p.title}</h2>
             <p className="text-gray-700 mb-4">{p.description}</p>
-            <div className="text-sm text-gray-500">By <span className="font-medium">{p.author}</span></div>
+            <div className="text-sm text-gray-500 flex justify-between"> <span className="font-medium"> By {p.author}</span>
+              <button 
+            onClick={()=> deletePost(p.id)}
+            className="px-4 py-1 bg-red-500 text-white rounded hover:bg-red-600 transition font-semibold text-sm shadow">
+              Delete
+            </button></div>
+           
           </div>
         ))}
       </div>
