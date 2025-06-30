@@ -8,6 +8,7 @@ import NewPost from "./NewPost";
 import Posts from "./Posts";
 import ProtectedRoute from "./ProtectedRoute";
 import SignUp from "./SignUp";
+import PostDetail from "./PostDetail";
 
 const Router = createBrowserRouter([
   {
@@ -34,6 +35,7 @@ const Router = createBrowserRouter([
             index: true,
             element: <Posts />
           },
+         
           {
             path: "NewPost",
             element: <NewPost />
@@ -48,6 +50,10 @@ const Router = createBrowserRouter([
         path: "SignUp",
         element: <SignUp/>
       }
+      , {
+            path:"Posts/:PostId",
+            element:<PostDetail/>
+          }
     ]
   }
 ]);
