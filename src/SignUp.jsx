@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Navigate } from 'react-router'
+import { Link, Navigate } from 'react-router'
 
 const SignUp = () => {
     const [form, setForm] = useState({
@@ -155,9 +155,9 @@ const SignUp = () => {
                     </>
                 )}
 
-                <a c href="/Login"
+                <Link to="/Login"
                     className='text-right  mt-4 flex flex-end ml-50' >
-                    I have Already Account </a>
+                    I have Already Account </Link>
             </form>
         </div>
     )

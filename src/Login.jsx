@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router'; // Correct import for React Router v6
+import { Link, useNavigate } from 'react-router'; // Correct import for React Router v6
 import { useContext } from 'react'; // To access the AuthContext
 import AuthContext from './AuthContext';
 
@@ -111,8 +111,8 @@ const Login = () => {
           {errors.general && (
   <p className="text-red-500 text-xs mt-1 text-center">{errors.general}</p>
 )}
-        <a href="./SignUp"
-        className='text-right  mt-4 flex flex-end ml-70' > SignUp</a>
+        <Link to="/SignUp"
+        className='text-right  mt-4 flex flex-end ml-70' > SignUp</Link>
         
       </form>
       <footer className="mt-16 border-t pt-6 text-center text-gray-500 text-sm ">
